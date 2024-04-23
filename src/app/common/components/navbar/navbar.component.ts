@@ -1,10 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl} from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { debounceTime, tap } from 'rxjs';
 import { FilterService } from '../../services/filter/filter.service';
-import { MatIconModule } from '@angular/material/icon';
-import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   selector: 'app-navbar',

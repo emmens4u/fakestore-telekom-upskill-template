@@ -1,10 +1,9 @@
 import { Component, effect, inject, OnInit } from '@angular/core';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { FilterService } from 'src/app/common/services/filter/filter.service';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/common/models/user.model';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-index',
@@ -22,8 +21,9 @@ export class IndexComponent implements OnInit {
 
   public constructor() {
     effect(() => {
-      if (this.filterService.filter()) {
-        this.searchProducts(this.filterService.filter()!);
+      const filterValue = this.filterService.filter();
+      if (filterValue) {
+        this.searchProducts(filterValue);
       } else {
         this.products = this.allProducts;
       }

@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../common/services/auth/auth.service';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
