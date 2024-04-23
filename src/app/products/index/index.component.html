@@ -1,0 +1,14 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<div class="container">
+    <div class="loading-spinner" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+
+    </div>
+    <ul class="product-list">
+        <li class="product-item" *ngFor="let product of products" (click)="onClick(product)">
+            <img src=" {{product.image}}" alt="{{product.title}}">
+            <p class="product-title">{{product.title}}</p>
+        </li>
+    </ul>
+</div>

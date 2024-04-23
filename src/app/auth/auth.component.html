@@ -1,0 +1,14 @@
+<div class="login-container">
+    <div class="left-side"></div>
+    <form class="signup-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1 class="signup-form">Login Form</h1>
+        <div *ngIf="loginForm.status === 'INVALID'">
+            <p class="invalid-form">Please enter username & Password</p>
+        </div>
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
