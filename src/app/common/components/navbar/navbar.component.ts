@@ -7,11 +7,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
-  standalone: true,
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [MatIconModule, FormsModule, ReactiveFormsModule, MatBadgeModule],
 })
 export class NavbarComponent implements OnInit {
   public search = new FormControl('');

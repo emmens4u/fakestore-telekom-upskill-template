@@ -7,11 +7,9 @@ import { Products } from 'src/app/common/models/user.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
-  imports: [MatProgressSpinnerModule, CommonModule],
 })
 export class IndexComponent implements OnInit {
   public products: Products[] = [];

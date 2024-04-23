@@ -1,36 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './auth/auth.component';
+import { IndexComponent } from './products/index/index.component';
+import { DetailsComponent } from './products/details/details.component';
+import { MainComponent } from './common/layouts/main/main.component';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    loadComponent: () =>
-      import('./auth/auth.component').then((m) => m.AuthComponent),
+    component: AuthComponent,
   },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
     path: 'products',
-    loadComponent: () =>
-      import('./products/index/index.component').then((m) => m.IndexComponent),
+    component: MainComponent,
+    canActivate: [authGuard],
   },
 
-  {
-    path: 'cart',
-    loadComponent: () =>
-      import('./cart/cart.component').then((m) => m.CartComponent),
-  },
+  
 
   {
     path: 'products/:id',
-    loadComponent: () =>
-      import('./products/details/details.component').then(
-        (m) => m.DetailsComponent
-      ),
-    pathMatch: 'full',
+    component: DetailsComponent
   },
 ];
 

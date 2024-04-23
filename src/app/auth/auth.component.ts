@@ -7,22 +7,19 @@ import { CommonModule } from '@angular/common';
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
-  imports: [ReactiveFormsModule, CommonModule],
-  standalone: true,
 })
-
-
 export class AuthComponent {
   public LoginState = '';
   private authService = inject(AuthService);
   private formBuilder = inject(FormBuilder);
 
-
   public onSubmit(): void {
-    this.authService.loginUser(
-      this.loginForm.value.username,
-      this.loginForm.value.password
-    );
+    const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
+
+    if (username && password) {
+      this.authService.loginUser(username, password);
+    }
   }
 
   public loginForm = this.formBuilder.group({
