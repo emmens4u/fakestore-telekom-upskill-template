@@ -4,6 +4,7 @@ import { AuthComponent } from './auth/auth.component';
 import { DetailsComponent } from './products/details/details.component';
 import { MainComponent } from './common/layouts/main/main.component';
 import { authGuard } from './guard/auth.guard';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {
@@ -21,16 +22,20 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
 
-  
-
   {
     path: 'products/:id',
-    component: DetailsComponent
+    component: DetailsComponent,
+    canActivate: [authGuard],
   },
+  {
+    path: 'carts',
+    component: CartComponent,
+    canActivate: [authGuard],
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

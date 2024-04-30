@@ -1,5 +1,4 @@
 import { Component, effect, inject, OnInit } from '@angular/core';
-
 import { FilterService } from 'src/app/common/services/filter/filter.service';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
