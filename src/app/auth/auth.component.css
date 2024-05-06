@@ -46,3 +46,9 @@
     color: red;
     text-align: center;
 }
+.invalid-form-auth{
+    color: red;
+    text-align: left;
+    font-size: small;
+    margin-bottom: 1rem;
+}

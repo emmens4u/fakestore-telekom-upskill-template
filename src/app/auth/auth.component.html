@@ -2,13 +2,15 @@
     <div class="left-side"></div>
     <form class="signup-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h1 class="signup-form">Login Form</h1>
-        <div *ngIf="loginForm.status === 'INVALID'">
-            <p class="invalid-form">Please enter username & Password</p>
-        </div>
         <label for="username">Username</label>
         <input type="text" id="username" formControlName="username" required>
+        <div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid" class="invalid-form-auth">Name is required</div>
         <label for="password">Password</label>
         <input type="password" id="password" formControlName="password" required>
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="invalid-form-auth">Password is required</div>
+        <div *ngIf="loginForm.status === 'INVALID' && loginForm.touched">
+            <p class="invalid-form-auth">Please enter username & Password</p>
+        </div>
         <button type="submit">Login</button>
     </form>
 </div>
